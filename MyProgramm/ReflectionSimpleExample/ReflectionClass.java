@@ -8,9 +8,14 @@ public class ReflectionClass {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String className = reader.readLine();
+        Object object = null;
 
-        Class clazz = Class.forName(className);
-        Object object = clazz.newInstance();
+        try {
+            Class clazz = Class.forName(className);
+            object = clazz.newInstance();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            System.out.println("Class not found");
+        }
 
         return object;
     }
