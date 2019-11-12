@@ -30,18 +30,18 @@ public class GameWindow extends JFrame {
         gameWindow.setSize(906, 478);
         gameWindow.setResizable(false);
         lastFrameTime = System.nanoTime();
-        GameField game_field = new GameField();
-        game_field.addMouseListener(new MouseAdapter() {
+        GameField gameField = new GameField();
+        gameField.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 int x = e.getX();
                 int y = e.getY();
-                float drop_right = dropLeft + drop.getWidth(null);
-                float drop_bottom = dropTop + drop.getHeight(null);
-                boolean is_drop = x >= dropLeft && x <= drop_right && y >= dropTop && y <= drop_bottom;
-                if(is_drop) {
+                float dropRight = dropLeft + drop.getWidth(null);
+                float dropBottom = dropTop + drop.getHeight(null);
+                boolean isDrop = x >= dropLeft && x <= dropRight && y >= dropTop && y <= dropBottom;
+                if(isDrop) {
                     dropTop = -100;
-                    dropLeft = (int) (Math.random() * (game_field.getWidth() - drop.getWidth(null)));
+                    dropLeft = (int) (Math.random() * (gameField.getWidth() - drop.getWidth(null)));
                     dropV = dropV + 20;
                     score++;
                     gameWindow.setTitle("Score: " + score);
@@ -49,7 +49,7 @@ public class GameWindow extends JFrame {
             }
         });
 
-        gameWindow.add(game_field);
+        gameWindow.add(gameField);
         gameWindow.setVisible(true);
 
     }
