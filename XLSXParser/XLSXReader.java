@@ -3,7 +3,7 @@ import org.apache.poi.ss.usermodel.*;
 import java.text.*;
  
 public class XLSXReader {
-    static DecimalFormat df = new DecimalFormat("#####0");
+    static DecimalFormat df = new DecimalFormat("####.##");
  
     public static void main(String[] args) {
         FileWriter fostream;
@@ -12,7 +12,7 @@ public class XLSXReader {
         String strFilePrefix = "newXmlFile";
  
         try {
-            Workbook wb = WorkbookFactory.create(new File("C:\\work\\workspace\\TestExcelXml\\КонищеваМария13107.xlsx"));
+            Workbook wb = WorkbookFactory.create(new File("C:\\work\\workspace\\TestExcelXml\\Test.xlsx"));
             Sheet sheet = wb.getSheet("OSContractorAutoCompareAct");
  
             fostream = new FileWriter(strOutputPath + "\\" + strFilePrefix+ ".xml");
